@@ -29,25 +29,28 @@ sys
 ## Usage
 
 ```
-usage: arp-request-manipulator.py [-h] --ethersrc ETHERSRC [--etherdst ETHERDST] --arphwsrc ARPHWSRC [--arphwdst ARPHWDST] --arpipsrc ARPIPSRC --arpipdst ARPIPDST [--count COUNT]
+usage: arp-request-manipulator.py [-h] --ethersrc ETHERSRC [--etherdst ETHERDST] --arphwsrc ARPHWSRC [--arphwdst ARPHWDST] --arpipsrc ARPIPSRC --arpipdst ARPIPDST --interface
+                                  INTERFACE [--count COUNT]
 
 ARP Request Packet Manipulator
 
 optional arguments:
-  -h, --help           show this help message and exit
-  --ethersrc ETHERSRC  Ethernet source hardware address
-  --etherdst ETHERDST  Ethernet destination hardware address (default: ff:ff:ff:ff:ff:ff)
-  --arphwsrc ARPHWSRC  ARP sender hardware address
-  --arphwdst ARPHWDST  ARP destination hardware address (default: 00:00:00:00:00:00)
-  --arpipsrc ARPIPSRC  ARP source IP address
-  --arpipdst ARPIPDST  ARP destination IP address
-  --count COUNT        Number of APR requests will be sent (default: 1)
+  -h, --help            show this help message and exit
+  --ethersrc ETHERSRC   Ethernet source hardware address
+  --etherdst ETHERDST   Ethernet destination hardware address (default: ff:ff:ff:ff:ff:ff)
+  --arphwsrc ARPHWSRC   ARP sender hardware address
+  --arphwdst ARPHWDST   ARP destination hardware address (default: 00:00:00:00:00:00)
+  --arpipsrc ARPIPSRC   ARP source IP address
+  --arpipdst ARPIPDST   ARP destination IP address
+  --interface INTERFACE
+                        Interface to send ARP requests (interfaces: lo|00:00:00:00:00:00 enp0s31f6|xx:xx:xx:xx:xx:xx wlp0s20f3|aa:bb:cc:dd:ee:ff)
+  --count COUNT         Number of APR requests will be sent (default: 1)
 ```
 
 ## Example
 
 ```
-$ sudo ./arp-request-manipulator.py --ethersrc "aa:bb:cc:dd:ee:ff" --arphwsrc "aa:bb:cc:dd:ee:ff" --arpipsrc "192.168.0.81" --arpipdst "192.168.0.51" --count 5
+$ sudo ./arp-request-manipulator.py --ethersrc "aa:bb:cc:dd:ee:ff" --arphwsrc "aa:bb:cc:dd:ee:ff" --arpipsrc "192.168.0.81" --arpipdst "192.168.0.51" --interface wlp0s20f3 --count 5
 ##### Raw Packet Bytes #####
 b'\xff\xff\xff\xff\xff\xff\xaa\xbb\xcc\xdd\xee\xff\x08\x06\x00\x01\x08\x00\x06\x04\x00\x01\xaa\xbb\xcc\xdd\xee\xff\xc0\xa8\x00Q\x00\x00\x00\x00\x00\x00\xc0\xa8\x003'
 
